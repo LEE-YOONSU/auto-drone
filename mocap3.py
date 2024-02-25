@@ -78,8 +78,8 @@ def receive_gps_and_send_mavlink():
                 q,
                 x, y, z
             )
-            if z < -3:
-                set_position_xy_target_local_ned(x, y)
+
+            set_position_xy_target_local_ned(x, y)
             mavlink_conn.mav.heartbeat_send(mavutil.mavlink.MAV_TYPE_ONBOARD_CONTROLLER,
                                             mavutil.mavlink.MAV_AUTOPILOT_INVALID, 0, 0, 0)
             print("[INFO]Heartbeat sent")
